@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Hitesh Parmar</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/skins/color-1.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css">
@@ -798,11 +798,9 @@
             }
         });
 
-        // Get references to the relevant elements
         const countryCodeSelect = document.getElementById("countryCodeSelect");
         const phoneInput = document.querySelector('input[name="Phone"]'); // Replace with the actual input name attribute
 
-        // Define the country-specific phone number digit limits
         const countryCodeLimits = {
             "91": 10,  // India's limit is 10 digits
             "1": 10,   // United States
@@ -813,28 +811,25 @@
             "49": 10,  // Germany
             "33": 10,  // France
             "55": 11,  // Brazil
-            // Add more country code limits as needed
         };
 
 
-        // Listen for changes in the selected country code
         countryCodeSelect.addEventListener("change", () => {
             const selectedCountryCode = countryCodeSelect.value;
             if (countryCodeLimits[selectedCountryCode]) {
                 phoneInput.maxLength = countryCodeLimits[selectedCountryCode];
             } else {
-                phoneInput.maxLength = 15; // Default maximum length
+                phoneInput.maxLength = 15;
             }
             showErrorIfExceedsLimit();
         });
 
-        // Listen for input changes in the phone input
         phoneInput.addEventListener('input', () => {
             const selectedCountryCode = countryCodeSelect.value;
             const enteredPhone = phoneInput.value.replace(/\D/g, ''); // Remove non-digit characters
             const limit = countryCodeLimits[selectedCountryCode];
 
-            clearError(); // Clear any existing error messages
+            clearError();
 
             if (limit) {
                 if (enteredPhone.length < limit) {
@@ -848,7 +843,6 @@
             showErrorIfExceedsLimit();
         });
 
-        // Add this function to clear error messages
         function clearError() {
             msg.innerHTML = '';
         }
@@ -859,7 +853,6 @@
         form.addEventListener('submit', e => {
             e.preventDefault();
 
-            // Check other field validity
             const emailInput = form.elements['Email'];
             const subjectInput = form.elements['Subject'];
             const messageInput = form.elements['Message'];

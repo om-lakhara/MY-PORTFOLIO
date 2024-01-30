@@ -1,12 +1,11 @@
 var typed = new Typed(".typing",
     {
-        strings: ["", "Full Stack Developer", "Flutter Developer"],
+        strings: ["Full Stack Developer", "Flutter Developer", "Android Developer"],
         typeSpeed: 100,
         BackSpeed: 60,
         loop: true
     })
 
-// ASide 
 const nav = document.querySelector(".nav"),
     navList = nav.querySelectorAll("li"),
     totalNavList = navList.length,
@@ -21,9 +20,7 @@ for (let i = 0; i < totalNavList; i++) {
         removeBackSection();
         for (let j = 0; j < totalNavList; j++) {
             if (navList[j].querySelector("a").classList.contains("active")) {
-                // console.log("back-section"+ navList[j].querySelector("a"))
                 addBackSection(j);
-                // allSection[j].classList.add("back-section");
             }
             navList[j].querySelector("a").classList.remove("active");
         }
